@@ -4,12 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run fix &&  next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "eslint": "eslint . --fix",
-    "format": "prettier --write --ignore-path .gitignore './**/*.{js,jsx,ts,tsx,json,css}'",
-    "fix": "npm run format && npm run eslint && npm run lint"
+    "prepare": "husky install",
+    "check-types": "tsc --pretty --noEmit",
+    "check-format": "prettier --check .",
+    "check-lint": "eslint . --ext ts --ext tsx --ext js",
+    "format": "prettier --write .",
+    "test-all": "npm run check-format && npm run check-lint && npm run check-types"
   },
   "dependencies": {
     "next": "12.2.2",
@@ -32,11 +35,9 @@
     "eslint-plugin-prefer-arrow": "^1.2.3",
     "eslint-plugin-react": "^7.30.1",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "lint-staged": "^13.0.3",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
     "prettier-plugin-tailwindcss": "^0.1.12",
-    "simple-git-hooks": "^2.8.0",
     "tailwindcss": "^3.1.6",
     "typescript": "4.7.4"
   }
