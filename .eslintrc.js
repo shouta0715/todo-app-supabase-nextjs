@@ -103,5 +103,6 @@ module.exports = {
         peerDependencies: true,
       },
     ],
+    "jsx-a11y/anchor-is-valid": "off",
   },
 };
